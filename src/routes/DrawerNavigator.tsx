@@ -12,51 +12,104 @@ import ProfileScreen from '@/Screens/ProfileScreen';
 import DetailsScreen from '@/Screens/DetailsScreen';
 import BottomTabNavigator from './BottomTabNavigator';
 import CustomDrawer from '@/components/DrawerTab/CustomDrawer';
+import {useTheme} from '@/components/common/ThemeContext';
 
 const Drawer = createDrawerNavigator();
 
-const DrawerNavigator = () => (
-  <Drawer.Navigator
-  drawerContent={props => <CustomDrawer { ... props}/>}
-    screenOptions={{
-      headerShown: false,
-      drawerActiveBackgroundColor: colors.primary,
-      drawerActiveTintColor: colors.white,
-      drawerLabelStyle: {
-        marginLeft:-10,
-      }
-    }}>
-    <Drawer.Screen
-      name="Home"
-      component={BottomTabNavigator}
-      options={{
-        title: 'Home',
-        drawerIcon: ({ focused, color,size}) => (
-          <Ionicons name="home-outline" size={px(18)} color={color} />
-        ),
-      }}
-    />
+const DrawerNavigator = () => {
+  const {toggleTheme, theme, isDarkTheme} = useTheme();
 
-    <Drawer.Screen name="Details" component={DetailsScreen} 
-    options={{
-      title: 'Details',
-      drawerIcon: ({ focused, color,size}) => (
-        <AntDesign name="user" size={px(18)} color={color} />
-      ),
-    }}
-    />
+//   console.log("Text Color:", theme?.textColor);
+// console.log("Background Color:", theme?.backgroundColor);
 
-    <Drawer.Screen
-      name="Profile"
-      component={ProfileScreen}
-      options={{
-        title: 'Profile',
-        drawerIcon: ({ focused, color,size}) => (
-          <AntDesign name="user" size={px(18)} color={color} />
-        ),
-      }}
-    />
-  </Drawer.Navigator>
-);
+  return (
+    <Drawer.Navigator
+      drawerContent={props => (
+        <CustomDrawer {...props} toggleTheme={toggleTheme} />
+      )}
+      screenOptions={{
+        headerShown: false,
+        drawerActiveBackgroundColor: theme?.selectionColor,
+        drawerActiveTintColor: colors.white,
+        drawerInactiveTintColor: isDarkTheme ? colors.white : colors.black,
+        drawerLabelStyle: {
+          marginLeft: -10,
+          color:isDarkTheme ? colors.white : colors.black
+        },
+      }}>
+      <Drawer.Screen
+        name="Home"
+        component={BottomTabNavigator}
+        options={{
+          title: 'Home',
+          drawerLabelStyle: ({focused}) => ({
+            color:isDarkTheme ? colors.white : colors.black
+          }),
+          drawerIcon: ({focused, color, size}) => (
+            <Ionicons
+              name="home-outline"
+              size={px(18)}
+              color={
+                isDarkTheme
+                  ? theme?.iconColor
+                  : focused
+                  ? colors.white
+                  : colors.black
+              }
+            />
+          ),
+        }}
+      />
+
+      <Drawer.Screen
+        name="Details"
+        component={DetailsScreen}
+        options={{
+          title: 'Details',
+          drawerLabelStyle: ({focused}) => ({
+            color:isDarkTheme ? colors.white : colors.black
+          }),
+          drawerIcon: ({focused, color, size}) => (
+            <AntDesign
+              name="user"
+              size={px(18)}
+              color={
+                isDarkTheme
+                  ? theme?.iconColor
+                  : focused
+                  ? colors.white
+                  : colors.black
+              }
+            />
+          ),
+        }}
+      />
+
+      <Drawer.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          title: 'Profile',
+          drawerLabelStyle: ({focused}) => ({
+            color:isDarkTheme ? colors.white : colors.black
+          }),
+          drawerIcon: ({focused, color, size}) => (
+            <AntDesign
+              name="user"
+              size={px(18)}
+              color={
+                isDarkTheme
+                  ? theme?.iconColor
+                  : focused
+                  ? colors.white
+                  : colors.black
+              }
+            />
+          ),
+        }}
+      />
+    </Drawer.Navigator>
+  );
+};
 
 export default DrawerNavigator;

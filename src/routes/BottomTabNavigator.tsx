@@ -11,10 +11,12 @@ import CustomTabBarButton from '@/components/BottomTab/CustomTabBarButton';
 import CustomTabBar from '@/components/BottomTab/CustomTabBar';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
+import { useTheme } from '@/components/common/ThemeContext'; 
 
 const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
+  const { theme } = useTheme();
   const navigation = useNavigation();
   return (
     <Tab.Navigator

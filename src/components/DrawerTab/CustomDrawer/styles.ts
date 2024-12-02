@@ -36,4 +36,9 @@ export const styles = StyleSheet.create({
   toggleText: {
     fontSize: px(16),
   },
+  themeText: {
+    fontSize: SIZES.medium,
+    marginRight: px(10),
+  },
+  
 });
