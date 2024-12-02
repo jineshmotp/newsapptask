@@ -1,3 +1,4 @@
+import { colors } from '@/theme';
 import React, { createContext, useState, useContext } from 'react';
 
 interface ThemeContextProps {
@@ -7,15 +8,21 @@ interface ThemeContextProps {
 }
 
 export const lightTheme: ThemeConfig = {
-  backgroundColor: '#ffffff',
-  textColor: '#000000',
-  primaryColor: '#4caf50',
+  backgroundColor: colors.white,
+  textColor: colors.black,
+  iconColor: colors.black,
+  selectionColor:colors.primary,
+  primaryColor: colors.primary,
+  // bottomTabColor:colors.,
+  // drawerColor:string,
 };
 
 export const darkTheme: ThemeConfig = {
-  backgroundColor: '#121212',
-  textColor: '#ffffff',
-  primaryColor: '#bb86fc',
+  backgroundColor: colors.black,
+  textColor: colors.white,
+  iconColor: colors.white,
+  selectionColor:colors.gray,
+  primaryColor: colors.primary,
 };
 
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
@@ -45,5 +52,10 @@ export const useTheme = () => {
 export interface ThemeConfig {
   backgroundColor: string;
   textColor: string;
+  iconColor:string;
+  selectionColor:string;
   primaryColor: string;
+  bottomTabColor:string;
+  drawerColor:string;
+
 }
