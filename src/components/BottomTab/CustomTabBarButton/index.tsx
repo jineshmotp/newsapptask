@@ -4,9 +4,11 @@ import {styles} from './styles';
 import Svg, {Path} from 'react-native-svg';
 import {colors} from '@/theme';
 import { px } from '@/utils';
+import { useTheme } from '@/components/common/ThemeContext';
 
 const CustomTabBarButton = props => {
   const {route, children, accessibilityState, onPress} = props;
+  const { theme,isDarkTheme } = useTheme();
 
   if (accessibilityState.selected) {
     return (
@@ -43,7 +45,8 @@ const CustomTabBarButton = props => {
 
         <TouchableOpacity activeOpacity={1} onPress={onPress} style={[styles.InactiveBtn,{
           borderTopLeftRadius:route === 'HomeScreen' ? px(10):0,
-          borderTopRightRadius:route === 'SettingsScreen' ? px(10):0
+          borderTopRightRadius:route === 'SettingsScreen' ? px(10):0,
+          backgroundColor: isDarkTheme ? 
 
         }]}>
           <Text>{children}</Text>

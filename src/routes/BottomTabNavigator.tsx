@@ -16,7 +16,7 @@ import { useTheme } from '@/components/common/ThemeContext';
 const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
-  const { theme } = useTheme();
+  const { theme,isDarkTheme } = useTheme();
   const navigation = useNavigation();
   return (
     <Tab.Navigator

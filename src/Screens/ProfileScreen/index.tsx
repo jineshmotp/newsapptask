@@ -1,4 +1,7 @@
 import { Container } from '@/custom/Container';
+import RNView from '@/custom/RNView';
+
+import CustomView from '@/custom/RNView';
 import { colors } from '@/theme';
 import React from 'react';
 import { View, Text } from 'react-native';
@@ -13,6 +16,7 @@ const ProfileScreen = () => {
       <Text>User Profile</Text>
     
     </View>
+ 
       </Container>
    
   );

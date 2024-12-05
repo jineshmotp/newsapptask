@@ -7,11 +7,12 @@ import { colors } from '@/theme';
 
 
 
+
 const CustomTabBar = props => {
-  const { theme } = useTheme();
+  const { theme,isDarkTheme } = useTheme();
   return (
     <View>
-        <View style={[styles.tabBar,{backgroundColor:theme?.backgroundColor}]} />
+        <View style={[styles.tabBar,{backgroundColor: isDarkTheme ? colors.gray : colors.primary}]} />
             <BottomTabBar { ... props} />
          
         

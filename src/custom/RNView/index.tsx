@@ -1,6 +1,6 @@
 import React from 'react';
 import { ReactNode } from 'react';
-import { View as RNView, StyleProp, ViewProps, ViewStyle } from 'react-native';
+import { View , StyleProp, ViewProps, ViewStyle } from 'react-native';
 import { useTheme } from '@/components/common/ThemeContext';
 
 interface CustomViewProps extends ViewProps {
@@ -8,20 +8,20 @@ interface CustomViewProps extends ViewProps {
   style?: StyleProp<ViewStyle>;
 }
 
-const CustomView = (props: CustomViewProps) => {
+const RNView = (props: CustomViewProps) => {
   const { theme } = useTheme();
 
   return (
-    <RNView
+    <View
       {...props}
       style={[{ backgroundColor: theme.backgroundColor }, props.style]}
     >
       {props.children}
-    </RNView>
+    </View>
   );
 };
 
-export default CustomView;
+export default RNView;
 
 
 
