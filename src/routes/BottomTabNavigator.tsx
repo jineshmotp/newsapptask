@@ -58,7 +58,7 @@ const BottomTabNavigator = () => {
                 width: 24,
                 height: 24,
                 resizeMode: 'contain',
-                tintColor: focused ? colors.primary : colors.gray,
+                tintColor: focused ? colors.primary : colors.white,
               }}
             />
           );

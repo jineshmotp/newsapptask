@@ -15,18 +15,20 @@ const CustomTabBarButton = props => {
       <View style={styles.btnWrapper}>
         <View style={{flexDirection: 'row'}}>
           <View style={[styles.svgGapFiller,{
-            borderTopLeftRadius:route === 'HomeScreen' ? px(10):0
+            borderTopLeftRadius:route === 'HomeScreen' ? px(10):0,
+            backgroundColor:theme?.bottomTabColor
           }]} />
 
-          <Svg width={px(55)} height={px(47)} viewBox="0 0 74 63">
+          <Svg width={px(55)} height={px(47)} viewBox="0 0 74 63" >
             <Path
               d="M75.2 0v61H0V0c4.1 0 7.4 3.1 7.9 7.1C10 21.7 22.5 33 37.7 33c15.2 0 27.7-11.3 29.7-25.9.5-4 3.9-7.1 7.9-7.1h-.1z"
-              fill={colors.white}
+              fill={theme?.bottomTabColor}
             />
           </Svg>
 
           <View style={[styles.svgGapFiller,{
-            borderTopRightRadius:route === 'SettingsScreen' ? px(10):0
+            borderTopRightRadius:route === 'SettingsScreen' ? px(10):0,
+            backgroundColor:theme?.bottomTabColor
           }]} />
 
         </View>
@@ -46,7 +48,7 @@ const CustomTabBarButton = props => {
         <TouchableOpacity activeOpacity={1} onPress={onPress} style={[styles.InactiveBtn,{
           borderTopLeftRadius:route === 'HomeScreen' ? px(10):0,
           borderTopRightRadius:route === 'SettingsScreen' ? px(10):0,
-          backgroundColor: isDarkTheme ? 
+          backgroundColor: theme?.bottomTabColor
 
         }]}>
           <Text>{children}</Text>

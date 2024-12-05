@@ -13,7 +13,7 @@ const HomeScreen = () => {
   const {theme} = useTheme();
 
   // Determine background color based on the current theme
-  const backgroundColor = theme?.isDarkTheme ? colors?.black : colors.blue.$500;
+  const backgroundColor = theme?.isDarkTheme ? colors?.black : colors.white;
 
   return (
     <Container hasHeader={true} backgroundColor={backgroundColor} isTab={false}>

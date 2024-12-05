@@ -3,6 +3,7 @@ import {StyleSheet} from 'react-native';
 import {colors, FONT, SIZES} from '@/theme';
 import { px } from '@/utils';
 
+
 export const styles = StyleSheet.create({
   btnWrapper: {
     flex: 1,
@@ -20,11 +21,25 @@ export const styles = StyleSheet.create({
     width: px(40),
     height: px(40),
     borderRadius: px(50) / 2,
-
+  
     alignItems: 'center',
     justifyContent: 'center',
     alignContent: 'center',
+    elevation: 5, // Android shadow
+  
+    borderColor: colors.primary,
+    borderWidth: 0.2,
+  
+    // Shadow for iOS
+    shadowColor: colors.black, // Shadow color
+    shadowOffset: {
+      width: 0, // Horizontal offset
+      height: 2, // Vertical offset
+    },
+    shadowOpacity: 0.25, // Opacity of the shadow
+    shadowRadius: 3.84, // How blurred the shadow is
   },
+  
   InactiveBtn: {
     flex: 1,
     height: px(45),

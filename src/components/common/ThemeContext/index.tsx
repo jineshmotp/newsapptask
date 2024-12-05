@@ -13,8 +13,12 @@ export const lightTheme: ThemeConfig = {
   iconColor: colors.black,
   selectionColor:colors.primary,
   primaryColor: colors.primary,
-  // bottomTabColor:colors.,
-  // drawerColor:string,
+
+  bottomTabColor:colors.primary,
+  bottomTabicon:colors.white,
+  
+  drawerColor:colors.white,
+  
 };
 
 export const darkTheme: ThemeConfig = {
@@ -23,6 +27,11 @@ export const darkTheme: ThemeConfig = {
   iconColor: colors.white,
   selectionColor:colors.gray,
   primaryColor: colors.primary,
+
+  bottomTabColor:colors.gray,
+  bottomTabicon:colors.white,
+
+  drawerColor:colors.black,
 };
 
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
@@ -55,7 +64,10 @@ export interface ThemeConfig {
   iconColor:string;
   selectionColor:string;
   primaryColor: string;
+
   bottomTabColor:string;
+  bottomTabicon:string,
+
   drawerColor:string;
 
 }
